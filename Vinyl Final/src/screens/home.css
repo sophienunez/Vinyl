@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.cards-like-container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+}
+
+.my-cardslike {
+    width: 100px;
+    margin-right: 10px;
+    text-align: center;
+}
+
+.my-cardslike h1 {
+    margin: 0;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.my-cardslike img {
+    width: 100px;
+    height: 100px;
+    display: block;
+    width: 100%;
+    height: auto;
+}
