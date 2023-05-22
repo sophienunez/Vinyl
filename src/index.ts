@@ -1,55 +1,37 @@
-import "./components/export"
-import "./screens/home"
+import './screens/export';
+import {addObserver, appState} from "./Strore/index"
+import { Screens } from "./Types/types";
 
-
-enum Screens{
-    Register,
-    Login,
-    Home
-}
 
 class AppContainer extends HTMLElement {
-
-    screen: Screens = Screens.Register;
-
-
 
     constructor(){
         super();
         this.attachShadow({mode: "open"})
+        addObserver(this)
     }
 
     connectedCallback() {
         this.render();
-
-        const register = this.shadowRoot?.querySelector("my-login");
-        register?.addEventListener("new-user", ()=> {
-            this.screen = Screens.Login;
-            this.render(); 
-        })
-
-        const home = this.shadowRoot?.querySelector("my-login");
-        home?.addEventListener("user-login", ()=> {
-            this.screen = Screens.Home;
-            this.render(); 
-        })
     }
 
     render() {
         if (!this.shadowRoot) return;
-        switch (this.screen) {
+        switch (appState.screen) {
 
-            case Screens.Register:
+            case Screens.LOGIN:
                 this.shadowRoot.innerHTML =`<my-login></my-login>`;
             break;
 
-            case Screens.Login:
+            case Screens.REGISTER:
                 this.shadowRoot.innerHTML = `<my-register></my-register>`;
             break;
 
-            case Screens.Home:
+            case Screens.HOME:
                 this.shadowRoot.innerHTML = `<my-home></my-home>`;
             break;
+            default:
+                break;
     } 
  }
 }

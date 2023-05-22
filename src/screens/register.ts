@@ -1,4 +1,7 @@
 import "../components/export"
+import { dispatch } from "../Strore/index";
+import { navigate } from "../Strore/actions";
+import { Screens } from "../Types/types";
 
 export default class Register extends HTMLElement {
     constructor(){
@@ -8,21 +11,29 @@ export default class Register extends HTMLElement {
 
     connectedCallback(){
         this.render();
-
-        const btn = this.shadowRoot?.querySelector("button");
-        btn?.addEventListener("click", ()=> {
-            const event = 
-            new CustomEvent("user-registered", {
-                composed: true
-            });
-
-            this.dispatchEvent(event);
-            alert("User-created");
-            console.log("Se registró con exito");
-            
-        })
-
+              
     }
+
+    handleRegisterButton(event: any) {
+        event?.preventDefault();
+          dispatch(navigate(Screens.HOME));
+          console.log('Click handle button') 
+        }
+
+        //const btn = this.shadowRoot?.querySelector("button");
+        //btn?.addEventListener("click", ()=> {
+            //const event = 
+            //new CustomEvent("user-registered", {
+             //   composed: true
+            //});
+
+            //this.dispatchEvent(event);
+            //alert("User-created");
+            //console.log("Se registró con exito");
+            
+        //})
+
+    
 
     render(){
         if(this.shadowRoot) this.shadowRoot.innerHTML = `
@@ -59,7 +70,7 @@ export default class Register extends HTMLElement {
                        <label for=""><input type="checkbox">
                        <a href="#">I agree</a>
                     </div>
-                    <button> Continue</button>
+                    <button class="toregister">Continue</button>
                     
 
                 </form>
@@ -68,8 +79,10 @@ export default class Register extends HTMLElement {
         </div>
 </section>
 
-        
         `;
+        const button = this.shadowRoot?.querySelector('.toregister');
+        console.log(button);
+        button?.addEventListener("click", this.handleRegisterButton);
     }
 }
 

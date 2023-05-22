@@ -7,6 +7,7 @@ export default class Nav extends HTMLElement {
 
     connectedCallback(){
         this.render();
+              
     }
 
     render(){
@@ -22,7 +23,6 @@ export default class Nav extends HTMLElement {
          <li>Library</li>
          <li>+</li>
          <li><3</li>
-         <li>PLaylist</li>
          </ul>
         </nav>
         </div>
