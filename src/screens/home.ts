@@ -3,8 +3,11 @@ import { SuggestionAttributes } from "../components/Suggestions/Suggestions";
 import "../components/export";
 import { data } from "../data";
 import { DataShape } from "../data";
+import { dispatch } from "../Strore/index";
+import { navigate } from "../Strore/actions";
+import { Screens } from "../Types/types";
 
-class Home extends HTMLElement {
+export default class Home extends HTMLElement {
     constructor(){
         super();
         this.attachShadow({mode: 'open'});

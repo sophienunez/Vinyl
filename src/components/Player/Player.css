@@ -6,11 +6,7 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-.player {
-    display: flex;
-    align-items: center;
-    position: relative;
-}
+
 
 .player-img {
     width: 400px;
@@ -31,6 +27,7 @@
     justify-content: left;
     margin-left: 420px;
     padding-top: 20px;
+    
 }
 
 h1 {

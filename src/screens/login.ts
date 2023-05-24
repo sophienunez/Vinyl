@@ -1,4 +1,8 @@
 import "../components/export"
+import { dispatch } from "../Strore/index";
+import { navigate } from "../Strore/actions";
+import { Screens } from "../Types/types";
+
 
 export default class Login extends HTMLElement {
     constructor(){
@@ -8,25 +12,21 @@ export default class Login extends HTMLElement {
 
     connectedCallback(){
         this.render();
-
-        const register = this.shadowRoot?.querySelector('.registro');
-        register?.addEventListener('click', ()=>{
-            const newUser = new CustomEvent('new-user', {
-                composed: true
-            })
-            this.dispatchEvent(newUser);
-            console.log('click');
-        })
-
-        const home = this.shadowRoot?.querySelector('.home');
-        home?.addEventListener('click', ()=>{
-            const logUser = new CustomEvent('user-login', {
-                composed: true
-            })
-            this.dispatchEvent(logUser);
-            console.log('click');
-        })
+        
     }
+
+        handleLoginButton(event: any) {
+            event?.preventDefault();
+              dispatch(navigate(Screens.HOME));
+              console.log('Click handle button') 
+            }
+
+             handletoRegisterButton(event:any){
+                event?.preventDefault();
+                dispatch(navigate(Screens.REGISTER));
+                console.log('Click button to Register');
+                
+             }
 
     render(){
         if(this.shadowRoot) this.shadowRoot.innerHTML = `
@@ -57,13 +57,20 @@ export default class Login extends HTMLElement {
                                <label for="">
                                <a class="registro">¿No tienes una cuenta? Registrate</a>
                             </div>
-                            <button class="home"> Continue</button>
+                            <button class="home">Continue</button>
                         </form>
                     </div>
                 </div>
         </section>
         
         `;
+        const button = this.shadowRoot?.querySelector('.home');
+        console.log(button);
+        button?.addEventListener("click", this.handleLoginButton);
+
+        const buttontoregister = this.shadowRoot?.querySelector('.registro');
+        console.log(button);
+        buttontoregister?.addEventListener("click", this.handletoRegisterButton);
     }
 }
 
