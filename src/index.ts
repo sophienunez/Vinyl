@@ -30,6 +30,56 @@ class AppContainer extends HTMLElement {
             case Screens.HOME:
                 this.shadowRoot.innerHTML = `<my-home></my-home>`;
             break;
+
+            case Screens.LIBRARY:
+                this.shadowRoot.innerHTML = `<my-library></my-library>`;
+            break;
+
+            case Screens.ADD:
+                this.shadowRoot.innerHTML = `<my-add></my-add>`;
+            break;
+
+            case Screens.LIKES:
+                this.shadowRoot.innerHTML = `<my-likes></my-likes>`;
+            break;
+            
+             /*LIBRARY TO ADD*/ 
+            
+             case Screens.LIBRARY:
+                this.shadowRoot.innerHTML = `<my-add></my-add>`;
+            break;
+
+            /*LIBRARY TO LIKES*/ 
+
+            case Screens.LIBRARY:
+                this.shadowRoot.innerHTML = `<my-likes></my-likes>`;
+            break;
+
+            /*ADD TO LIBRARY*/ 
+
+            case Screens.ADD:
+                this.shadowRoot.innerHTML = `<my-library></my-library>`;
+            break;
+
+            /*ADD TO LIKES*/ 
+
+            case Screens.ADD:
+                this.shadowRoot.innerHTML = `<my-likes></my-likes>`;
+            break;
+
+            /*LIKES TO LIBRARY*/ 
+
+            case Screens.ADD:
+                this.shadowRoot.innerHTML = `<my-library></my-library>`;
+            break;
+
+             /*LIKES TO ADD*/ 
+
+             case Screens.ADD:
+                this.shadowRoot.innerHTML = `<my-add></my-add>`;
+            break;
+
+            
             default:
                 break;
     } 

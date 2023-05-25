@@ -6,11 +6,6 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-.player {
-    display: flex;
-    align-items: center;
-    position: relative;
-}
 
 .player-img {
     width: 400px;

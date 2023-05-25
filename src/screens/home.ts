@@ -25,25 +25,6 @@ export default class Home extends HTMLElement {
         <my-player></my-player>
         `;
 
-        data.forEach((elem: DataShape) => {
-            const cardLike = this.ownerDocument.createElement("my-likes");
-            cardLike.classList.add("cards-like-container");
-
-            cardLike.setAttribute(LikesAttributes.card_img, elem.card_img);
-            cardLike.setAttribute(LikesAttributes.song_name, elem.song_name);
-            cardLike.setAttribute(LikesAttributes.artist_name, elem.artist_name);
-
-            this.shadowRoot?.appendChild(cardLike);
-
-            
-            const cardSuggestion = this.ownerDocument.createElement("my-suggestions");
-
-            cardSuggestion.setAttribute(SuggestionAttributes.card_img, elem.card_img);
-            cardSuggestion.setAttribute(SuggestionAttributes.song_name, elem.song_name);
-            cardSuggestion.setAttribute(SuggestionAttributes.album_name, elem.album_name);
-
-            this.shadowRoot?.appendChild(cardSuggestion);
-        });
     }
 }
 
