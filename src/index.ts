@@ -17,7 +17,7 @@ class AppContainer extends HTMLElement {
 
     render() {
         if (!this.shadowRoot) return;
-        switch (appState.screen) {
+        switch (appState.screens) {
 
             case Screens.LOGIN:
                 this.shadowRoot.innerHTML =`<my-login></my-login>`;
@@ -35,10 +35,6 @@ class AppContainer extends HTMLElement {
                 this.shadowRoot.innerHTML = `<my-library></my-library>`;
             break;
 
-            case Screens.ADD:
-                this.shadowRoot.innerHTML = `<my-add></my-add>`;
-            break;
-
             case Screens.LIKES:
                 this.shadowRoot.innerHTML = `<my-likes></my-likes>`;
             break;
@@ -54,31 +50,6 @@ class AppContainer extends HTMLElement {
             case Screens.LIBRARY:
                 this.shadowRoot.innerHTML = `<my-likes></my-likes>`;
             break;
-
-            /*ADD TO LIBRARY*/ 
-
-            case Screens.ADD:
-                this.shadowRoot.innerHTML = `<my-library></my-library>`;
-            break;
-
-            /*ADD TO LIKES*/ 
-
-            case Screens.ADD:
-                this.shadowRoot.innerHTML = `<my-likes></my-likes>`;
-            break;
-
-            /*LIKES TO LIBRARY*/ 
-
-            case Screens.ADD:
-                this.shadowRoot.innerHTML = `<my-library></my-library>`;
-            break;
-
-             /*LIKES TO ADD*/ 
-
-             case Screens.ADD:
-                this.shadowRoot.innerHTML = `<my-add></my-add>`;
-            break;
-
             
             default:
                 break;

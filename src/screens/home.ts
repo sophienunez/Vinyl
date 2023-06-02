@@ -3,7 +3,7 @@ import { SuggestionAttributes } from "../components/Suggestions/Suggestions";
 import "../components/export";
 import { data } from "../data";
 import { DataShape } from "../data";
-import { dispatch } from "../Strore/index";
+import { addObserver, dispatch } from "../Strore/index";
 import { navigate } from "../Strore/actions";
 import { Screens } from "../Types/types";
 
@@ -11,6 +11,7 @@ export default class Home extends HTMLElement {
     constructor(){
         super();
         this.attachShadow({mode: 'open'});
+        addObserver(this)
     }
 
     connectedCallback(){
@@ -23,6 +24,7 @@ export default class Home extends HTMLElement {
         <link rel="stylesheet" href="../src/screens/home.css">
         <my-nav></my-nav>
         <my-player></my-player>
+        <my-add></my-add>
         `;
 
     }

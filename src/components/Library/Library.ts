@@ -56,19 +56,13 @@ export default class Library extends HTMLElement {
 
     handlehomeButton(event: any) {
         event?.preventDefault();
-          dispatch(navigate(Screens.HOME));
+        dispatch(navigate({payload:Screens.HOME}));
           console.log('Click handle button to back to home') 
-    }
-
-    handleAddButton(event: any) {
-        event?.preventDefault();
-          dispatch(navigate(Screens.ADD));
-          console.log('Click handle button to add') 
     }
 
     handleLikesButton(event: any) {
         event?.preventDefault();
-          dispatch(navigate(Screens.LIKES));
+        dispatch(navigate({payload:Screens.LIKES}));
           console.log('Click handle button to likes') 
     }
     
@@ -85,7 +79,6 @@ export default class Library extends HTMLElement {
          <div class="buttons">
          <button class="tohome">Home</button>
          <button class="tolibrary">Library</button>
-         <button class="toadd">+</button>
          <button class="tolikes"><3</button>
          </div>
          </ul>
@@ -114,9 +107,6 @@ export default class Library extends HTMLElement {
             console.log(btnhome);
             btnhome?.addEventListener("click", this.handlehomeButton);
 
-            const btnadd = this.shadowRoot?.querySelector('.toadd');
-            console.log(btnadd);
-            btnadd?.addEventListener("click", this.handleAddButton);
 
             const btnlikes = this.shadowRoot?.querySelector('.tolikes');
             console.log(btnlikes);

@@ -1,13 +1,14 @@
-import "../export"
-import { dispatch } from "../../Strore/index";
+import "../export";
+import { addObserver, dispatch } from "../../Strore/index";
 import { navigate } from "../../Strore/actions";
 import { Screens } from "../../Types/types";
 
-export default class Nav extends HTMLElement {
+export default class Myprofile extends HTMLElement {
 
     constructor(){
         super();
         this.attachShadow({mode: 'open'})
+        addObserver(this)
     }
 
     connectedCallback(){
@@ -39,11 +40,16 @@ export default class Nav extends HTMLElement {
          <div class="buttons">
          <button class="tohome">Home</button>
          <button class="tolibrary">Library</button>
+         <button class="toadd">+</button>
          <button class="tolikes"><3</button>
          <button class="toprofile">Profile</button>
          </div>
          </ul>
         </nav>
+        </div>
+
+        <div class="librarycontent">
+        <h2>gHOLA DESDE MY PROFILE COMPONENT</h2>
         </div>
         `;
 
@@ -57,4 +63,4 @@ export default class Nav extends HTMLElement {
     }
 }
 
-customElements.define("my-nav", Nav);
+customElements.define("my-componentprofile", Myprofile);

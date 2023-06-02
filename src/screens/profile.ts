@@ -1,13 +1,13 @@
-import "../export"
-import { dispatch } from "../../Strore/index";
-import { navigate } from "../../Strore/actions";
-import { Screens } from "../../Types/types";
+import { addObserver, dispatch } from "../Strore/index";
+import { navigate } from "../Strore/actions";
+import { Screens } from "../Types/types";
 
-export default class Nav extends HTMLElement {
+export default class Profile extends HTMLElement {
 
     constructor(){
         super();
         this.attachShadow({mode: 'open'})
+        addObserver(this)
     }
 
     connectedCallback(){
@@ -30,21 +30,7 @@ export default class Nav extends HTMLElement {
     render(){
         if(this.shadowRoot) this.shadowRoot.innerHTML = `
         <link rel="stylesheet" href="../src/components/Nav/Nav.css">
-        <div id="sidebar">
-        <nav class="nav">
-        <h2>Vinyl</h2>
-        <h3>Hello!</h3>
-         <ul>
-         <input type="search" class="search" placeholder="Search">
-         <div class="buttons">
-         <button class="tohome">Home</button>
-         <button class="tolibrary">Library</button>
-         <button class="tolikes"><3</button>
-         <button class="toprofile">Profile</button>
-         </div>
-         </ul>
-        </nav>
-        </div>
+        <my-componentprofile></my-componentprofile>
         `;
 
         const btnlibrary = this.shadowRoot?.querySelector('.tolibrary');
@@ -57,4 +43,4 @@ export default class Nav extends HTMLElement {
     }
 }
 
-customElements.define("my-nav", Nav);
+customElements.define("my-profile", Profile);

@@ -1,17 +1,20 @@
-import { LikesAttributes } from "../components/Likes/Likes";
-import { SuggestionAttributes } from "../components/Suggestions/Suggestions";
-import "../components/export";
-import "../screens/export"
-import { dispatch } from "../Strore/index";
-import { navigate } from "../Strore/actions";
+import { addObserver, dispatch } from "../Strore/index";
+import { saveproduct, navigate } from "../Strore/actions";
+import { SomeActions } from "../Types/store";
+import { Product } from "../Types/products";
 import { Screens } from "../Types/types";
-import { data } from "../data";
-import { DataShape } from "../data";
+import "../components/Productsadded/productsadded"
+
+const userInputs: Product = {
+    name: "",
+    price: "0",
+};
 
 export default class Add extends HTMLElement {
     constructor(){
         super();
         this.attachShadow({mode: 'open'});
+        addObserver(this)
     }
 
     connectedCallback(){
@@ -20,66 +23,75 @@ export default class Add extends HTMLElement {
 
     handlehomeButton(event: any) {
         event?.preventDefault();
-          dispatch(navigate(Screens.HOME));
-          console.log('Click handle button to back to home') 
+        dispatch(navigate({payload: Screens.HOME}))
+        console.log('Click handle button to back to home') 
     }
 
     handleAddButton(event: any) {
         event?.preventDefault();
-          dispatch(navigate(Screens.LIBRARY));
+        dispatch(navigate({payload: Screens.LIBRARY}))
           console.log('Click handle button to library') 
     }
 
     handleLikesButton(event: any) {
         event?.preventDefault();
-          dispatch(navigate(Screens.LIKES));
+        dispatch(navigate({payload: Screens.LIKES}))
           console.log('Click handle button to likes') 
     }
 
     render(){
         if(this.shadowRoot) this.shadowRoot.innerHTML = `
-        
         <link rel="stylesheet" href="../src/screens/add.css">
-        
-        <div id="sidebar">
-        <nav class="nav">
-        <h2>Vinyl</h2>
-        <h3>Hello!</h3>
-         <ul>
-         <input type="search" class="search" placeholder="Search">
-         <div class="buttons">
-         <button class="tohome">Home</button>
-         <button class="tolibrary">Library</button>
-         <button class="toadd">+</button>
-         <button class="tolikes"><3</button>
-         </div>
-         </ul>
-        </nav>
-        </div>
-        
-        <div class= "addcontent">
-        <h2>Sube Tus Favoritos</h2>  
-        <div class="inputs">      
-        <input type="text" placeholder="Producto">
-        <input type="text" placeholder="Precio">
-        <button class="toupload">Subir</button>
-        </div>
-        </div>
         `;
 
-        const btnhome = this.shadowRoot?.querySelector('.tohome');
-            console.log(btnhome);
-            btnhome?.addEventListener("click", this.handlehomeButton);
+        const container = this.ownerDocument.createElement("div");
+        container.classList.add("container")
 
-            const btnlibrary = this.shadowRoot?.querySelector('.tolibrary');
-            console.log(btnlibrary);
-            btnlibrary?.addEventListener("click", this.handleAddButton);
+        const tittle = this.ownerDocument.createElement("h2");
+        tittle.classList.add("tittle")
+        tittle.textContent = "Sell your Favorites"
 
-            const btnlikes = this.shadowRoot?.querySelector('.tolikes');
-            console.log(btnlikes);
-            btnlikes?.addEventListener("click", this.handleLikesButton);        
+        const inputscont = this.ownerDocument.createElement("div");
+        inputscont.classList.add("inputscont")
 
+        const name = this.ownerDocument.createElement("input");
+            name.type = "text";
+            name.addEventListener ("change", (e: any) => {
+                userInputs.name = e.target.value; 
+                
+            });
+
+            const price = this.ownerDocument.createElement("input");
+            price.type = "number";
+            price.addEventListener ("change", (e: any) => {
+                userInputs.price = e.target.value; 
+            });
+            
+            const button = this.ownerDocument.createElement("button");
+            button.textContent = "Save";
+            button.addEventListener("click", async () => {
+                console.log(userInputs);
+                //ACTION PARA GUARDAR LA INFO
+                dispatch(await saveproduct(userInputs))
+                
+            })
+           container.appendChild(tittle);
+           inputscont.appendChild(name);
+           inputscont.appendChild(price);
+           inputscont.appendChild(button);
+           
+           this.shadowRoot?.appendChild(container)
+           container.appendChild(inputscont);
+
+
+
+        }
     }
-}
+
+
+       
+
+    
+
 
 customElements.define("my-add", Add);

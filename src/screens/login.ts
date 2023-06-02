@@ -1,35 +1,37 @@
 import "../components/export"
-import { dispatch } from "../Strore/index";
+import { addObserver, appState, dispatch } from "../Strore/index";
 import { navigate } from "../Strore/actions";
 import { Screens } from "../Types/types";
+
 
 
 export default class Login extends HTMLElement {
     constructor(){
         super();
         this.attachShadow({mode: 'open'});
+        addObserver(this);
     }
 
     connectedCallback(){
         this.render();
+        console.log(appState.screens);
+        
         
     }
 
-        handleLoginButton(event: any) {
-            event?.preventDefault();
-              dispatch(navigate(Screens.HOME));
-              console.log('Click handle button') 
+        handleLoginButton() {
+            
+              dispatch(navigate({payload:Screens.HOME}));
             }
 
              handletoRegisterButton(event:any){
                 event?.preventDefault();
-                dispatch(navigate(Screens.REGISTER));
-                console.log('Click button to Register');
+                dispatch(navigate({payload:Screens.REGISTER}));
                 
              }
-
     render(){
-        if(this.shadowRoot) this.shadowRoot.innerHTML = `
+        if(!this.shadowRoot) return;
+         this.shadowRoot.innerHTML = `
         <link rel="stylesheet" href="../src/screens/login.css">
         <section>
         
@@ -65,11 +67,9 @@ export default class Login extends HTMLElement {
         
         `;
         const button = this.shadowRoot?.querySelector('.home');
-        console.log(button);
         button?.addEventListener("click", this.handleLoginButton);
 
         const buttontoregister = this.shadowRoot?.querySelector('.registro');
-        console.log(button);
         buttontoregister?.addEventListener("click", this.handletoRegisterButton);
     }
 }
