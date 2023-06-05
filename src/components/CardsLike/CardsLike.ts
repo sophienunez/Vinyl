@@ -1,3 +1,7 @@
+import { data } from "../../data";
+import { DataShape } from "../../data";
+
+
 export enum CardsLikeAttributes {
     "card_img" = "card_img",
     "artist_name" = "artist_name",
@@ -43,9 +47,9 @@ export default class CardsLike extends HTMLElement {
         if(this.shadowRoot) {
             this.shadowRoot.innerHTML = `
             <link rel="stylesheet" href="../src/components/CardsLike/CardsLike.css">
+            <img src="${this.card_img}" class="like-img"></img>
             <h1>${this.artist_name}</h1>
             <h1>${this.song_name}</h1>
-            <img src="${this.card_img}" class="like-img"></img>
             `;
         }
     }

@@ -3,11 +3,15 @@ import { SuggestionAttributes } from "../components/Suggestions/Suggestions";
 import "../components/export";
 import { data } from "../data";
 import { DataShape } from "../data";
+import { addObserver, dispatch } from "../Strore/index";
+import { navigate } from "../Strore/actions";
+import { Screens } from "../Types/types";
 
-class Home extends HTMLElement {
+export default class Home extends HTMLElement {
     constructor(){
         super();
         this.attachShadow({mode: 'open'});
+        addObserver(this)
     }
 
     connectedCallback(){
@@ -20,27 +24,9 @@ class Home extends HTMLElement {
         <link rel="stylesheet" href="../src/screens/home.css">
         <my-nav></my-nav>
         <my-player></my-player>
+        <my-add></my-add>
         `;
 
-        data.forEach((elem: DataShape) => {
-            const cardLike = this.ownerDocument.createElement("my-likes");
-            cardLike.classList.add("cards-like-container");
-
-            cardLike.setAttribute(LikesAttributes.card_img, elem.card_img);
-            cardLike.setAttribute(LikesAttributes.song_name, elem.song_name);
-            cardLike.setAttribute(LikesAttributes.artist_name, elem.artist_name);
-
-            this.shadowRoot?.appendChild(cardLike);
-
-            
-            const cardSuggestion = this.ownerDocument.createElement("my-suggestions");
-
-            cardSuggestion.setAttribute(SuggestionAttributes.card_img, elem.card_img);
-            cardSuggestion.setAttribute(SuggestionAttributes.song_name, elem.song_name);
-            cardSuggestion.setAttribute(SuggestionAttributes.album_name, elem.album_name);
-
-            this.shadowRoot?.appendChild(cardSuggestion);
-        });
     }
 }
 

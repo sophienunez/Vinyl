@@ -7,21 +7,21 @@ export interface DataShape {
 
 export const data = [
     {
-        song_name: "prisioner", 
-        artist_name: "miley cyrus",
-        album_name: "plastic hearts",
+        song_name: "Prisioner", 
+        artist_name: "Miley Cyrus",
+        album_name: "Plastic Hearts",
         card_img: "../src/img/cover1.jpg",    
     },
     {
-        song_name: "fairy song", 
-        artist_name: "beabadoobee",
-        album_name: "beatopia",
+        song_name: "Fairy Song", 
+        artist_name: "Beabadoobee",
+        album_name: "Beatopia",
         card_img: "../src/img/cover2.png",    
     },
     {
-        song_name: "brooklyn baby", 
-        artist_name: "lana del rey",
-        album_name: "ultraviolence",
+        song_name: "Brooklyn Baby", 
+        artist_name: "Lana del Rey",
+        album_name: "Ultraviolence",
         card_img: "../src/img/cover3.jfif",    
     },
 ];

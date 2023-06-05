@@ -1,12 +1,9 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap');
 
 *{
     margin: 0;
     padding: 0;
     font-family: 'Montserrat', sans-serif;
-    background-image: url("../bck.png");
-    background-size: cover;
 }
 
 .nav{
@@ -141,44 +138,8 @@ li {
     }
 }
 
-/*Likes css*/
 
-.tittle {
+
+.librarycontent{
     margin-left: 500px;
-  }
-  
-  .likes {
-    display: flex;
-    margin-left: 545px;
-  }
-  
-  .like-img {
-    width: 200px;
-    height: 200px;
-    margin-right: 10px;
-    padding-top: 20px;
-    border-radius: 25px;
-  }
-  
-  @media only screen and (max-width: 1200px) {
-    .tittle,
-    .likes {
-      margin-left: 400px;
-    }
-  }
-  
-  @media only screen and (max-width: 992px) {
-    .tittle,
-    .likes {
-      margin-left: 300px;
-      padding-left: 0;
-    }
-  }
-  
-  @media only screen and (max-width: 768px) {
-    .tittle,
-    .likes {
-      margin-left: 0;
-      padding-left: 0;
-    }
-}  
+}
