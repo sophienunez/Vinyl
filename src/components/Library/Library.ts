@@ -1,5 +1,6 @@
 import "../export"
 import "../../components/export"
+import { LikesAttributes } from "../Likes/Likes";
 import { SuggestionAttributes } from "../Suggestions/Suggestions";
 import { dispatch } from "../../Strore/index";
 import { navigate } from "../../Strore/actions";
@@ -64,12 +65,6 @@ export default class Library extends HTMLElement {
         dispatch(navigate({payload:Screens.LIKES}));
           console.log('Click handle button to likes') 
     }
-
-    handleProfileButton(event: any) {
-        event?.preventDefault();
-        dispatch(navigate({payload:Screens.PROFILE}));
-          console.log('Click handle button to profile') 
-    }
     
     render(){
         if(this.shadowRoot) {
@@ -85,7 +80,6 @@ export default class Library extends HTMLElement {
          <button class="tohome">Home</button>
          <button class="tolibrary">Library</button>
          <button class="tolikes"><3</button>
-         <button class="toprofile">Profile</button>
          </div>
          </ul>
         </nav>
@@ -117,10 +111,6 @@ export default class Library extends HTMLElement {
             const btnlikes = this.shadowRoot?.querySelector('.tolikes');
             console.log(btnlikes);
             btnlikes?.addEventListener("click", this.handleLikesButton);
-
-            const btnprofile = this.shadowRoot?.querySelector('.toprofile');
-            console.log(btnprofile);
-            btnprofile?.addEventListener("click", this.handleProfileButton);
         }
     }
 }

@@ -2,8 +2,13 @@ import "../components/export"
 import { addObserver, appState, dispatch } from "../Strore/index";
 import { navigate } from "../Strore/actions";
 import { Screens } from "../Types/types";
+import firebase from "../Utils/firebase";
+import "../indexfireb" 
 
-
+const Credentials = {
+    email: "",
+    password: "",
+}
 
 export default class Login extends HTMLElement {
     constructor(){
@@ -15,14 +20,22 @@ export default class Login extends HTMLElement {
     connectedCallback(){
         this.render();
         console.log(appState.screens);
-        
-        
     }
 
-        handleLoginButton() {
+    //async handleLoggedButton() {
+      //  const resp = await firebase.loginUser(Credentials);
+        //if(resp){
+          //  dispatch(navigate({payload: Screens.HOME}));
+        //}
+        //console.log(resp);
+  //  }
+
+  handleLoginButton() {
             
-              dispatch(navigate({payload:Screens.HOME}));
-            }
+    dispatch(navigate({payload:Screens.HOME}));
+  }
+
+    
 
              handletoRegisterButton(event:any){
                 event?.preventDefault();
@@ -41,12 +54,12 @@ export default class Login extends HTMLElement {
                             <h2>Log In</h2>
                             
                             <div class="inputbox">
-                               <input type="email" required>
+                               <input type="email" class="email" required>
                                <label for="">Email</label>
                             </div>
         
                             <div class="inputbox">
-                               <input type="password" required>
+                               <input type="password" class= "password" required>
                                <label for="">Password</label>
                             </div>
         
@@ -66,6 +79,12 @@ export default class Login extends HTMLElement {
         </section>
         
         `;
+        const email = this.shadowRoot?.querySelector('.email');
+        email?.addEventListener("change", (event: any) => (Credentials.email) = event.target.value)
+
+        const password = this.shadowRoot?.querySelector('.password');
+        password?.addEventListener("change", (event: any) => (Credentials.password) = event.target.value)
+
         const button = this.shadowRoot?.querySelector('.home');
         button?.addEventListener("click", this.handleLoginButton);
 

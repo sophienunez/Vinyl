@@ -21,7 +21,7 @@ export const saveproduct = async (products: Product): Promise <Actions> => {
 };
 
 export const getProduct = async (): Promise <Actions> => {
-  const products = await firebase.getProductsFromDB();
+  const products = await  firebase.getProductsFromDB();
   return {
     action: SomeActions.GET_PRODUCT,
     payload: products,

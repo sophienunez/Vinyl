@@ -1,3 +1,4 @@
+
 export default {
     apiKey: "AIzaSyDWaTTQutHKuW7kPwC9kqpfaXbWTbRMxMY",
     authDomain: "dca-2023-afd52.firebaseapp.com",
