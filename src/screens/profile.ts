@@ -41,10 +41,25 @@ export default class Profile extends HTMLElement {
 
     render(){
         if(this.shadowRoot) this.shadowRoot.innerHTML = `
-        <link rel="stylesheet" href="../src/components/Nav/Nav.css">
-        <my-componentprofile></my-componentprofile>
+        <link rel="stylesheet" href="../src/screens/profile.css">
+        <div id="sidebar">
+        <nav class="nav">
+        <h2>Vinyl</h2>
+        <h3>Hello!</h3>
+         <ul>
+         <input type="search" class="search" placeholder="Search">
+         <div class="buttons">
+         <button class="tohome">Home</button>
+         <button class="tolibrary">Library</button>
+         <button class="tolikes"><3</button>
+         <button class="toprofile">Profile</button>
+         </div>
+         </ul>
+        </nav>
+        </div>
+        <my-componentprofile class="profile"></my-componentprofile>
         `;
-        
+
         const btnhome = this.shadowRoot?.querySelector('.tohome');
         console.log(btnhome);
         btnhome?.addEventListener("click", this.handlehomeButton);

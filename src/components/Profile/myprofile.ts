@@ -73,40 +73,34 @@ export default class Myprofile extends HTMLElement {
 
     render(){
         if(this.shadowRoot) this.shadowRoot.innerHTML = `
-        <link rel="stylesheet" href="../src/components/Profile/profile.css">
-        <div id="sidebar">
-        <nav class="nav">
-        <h2>Vinyl</h2>
-        <h3>Hello!</h3>
-         <ul>
-         <input type="search" class="search" placeholder="Search">
-         <div class="buttons">
-         <button class="tohome">Home</button>
-         <button class="tolibrary">Library</button>
-         <button class="tolikes"><3</button>
-         <button class="toprofile">Profile</button>
-         </div>
-         </ul>
-        </nav>
-        </div>
+        <link rel="stylesheet" href="../src/components/Profile/myprofile.css">
 
         <div class="Profile">
         <div class="user_info">
         <img src="${this.profile_img}" class="like-img"></img>
-        <h3>Profile</h3>
-        <h1>${this.profile_name}</h1>
+        <h4>Profile</h4>
+        <h1 class="profile_name">${this.profile_name}</h1>
         </div>
         <div class="change_info">
-        <h2>Change Password</h2>
-        <h3>Old Password</h3>
-        <h3>New Password</h3>
+        <h3 class"password_text" >Change Password</h3>
+
+        <div class="inputbox">
+          <input type="password" required>
+          <label for="">Old Password</label>
+        </div>
+
+        <div class="inputbox">
+          <input type="password" required>
+          <label for="">New Password</label>
+        </div>
+
         <button class="Change_btn">Change</button>
         </div>
         <div class="options">
-        <button class="settings">Settings</button>
-        <button class="premium">Get Premium</button>
-        <button class="help">Help</button>
-        <button class="sign_out">Sign Out</button>
+        <button class="btn">Settings</button>
+        <button class="btn">Get Premium</button>
+        <button class="btn">Help</button>
+        <button class="btn">Sign Out</button>
         </div>
         </div>
         `;

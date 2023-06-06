@@ -138,8 +138,16 @@ li {
     }
 }
 
-
+/*Library css*/
 
 .librarycontent{
     margin-left: 500px;
+}
+
+@media only screen and (max-width: 600px) {
+
+  .librarycontent{
+    margin-left: 0px;
+  }
+
 }
