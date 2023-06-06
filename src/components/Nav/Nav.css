@@ -26,13 +26,17 @@ h3{
 }
 #sidebar{
     position: fixed;
-    width: 500px;
+    width: 50%;
+    max-width: 500px;
     height: 690px;
     margin-top: 0;
     border-radius: 25px;
     background-color: rgba(49, 49, 49, 0.2);
     backdrop-filter: blur(7px);
-    
+    top: 20px;
+    left: 20px;
+    transform: translateX(0);
+    transition: width 0.3s ease-in-out;
 }
 
 #sidebar ul li{
@@ -52,12 +56,15 @@ li {
 }
 
 .search{
-    border-radius: 4px;
-    width: 500px;
-    height: 30px;
-    align-items: center;
-    border: none;
-    text-align: center;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 500px;
+  height: 30px;
+  align-items: center;
+  border: none;
+  text-align: center;
+  margin-top: 20px;
+  transform: translateX(0);
 }
 
 .buttons{
@@ -72,7 +79,6 @@ li {
     background-color: transparent;
     color: #fff;
     padding: 8px;
-
 }
 
 .buttons button:hover{
@@ -80,3 +86,53 @@ li {
 
 }
 
+/* Media Queries for Nav section */
+
+@media only screen and (max-width: 1200px) {
+    #sidebar {
+      max-width: 400px;
+    }
+  
+    .search {
+      max-width: 400px;
+    }
+  }
+  
+  @media only screen and (max-width: 992px) {
+    #sidebar {
+      max-width: 300px;
+    }
+  
+    .search {
+      max-width: 300px;
+    }
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .nav{
+      padding-top: 0;
+    }
+
+    #sidebar {
+      position: static;
+      width: 100%;
+      max-width: none;
+      height: auto;
+      border-radius: 0;
+      backdrop-filter: none;
+      background-color: transparent;
+      transition: none;
+      transform: none;
+    }
+  
+    .search {
+      width: 100%;
+      max-width: none;
+      margin-left: 0;
+      transform: none;
+    }
+
+    h2, h3 {
+      padding-left: 0;
+    }
+}

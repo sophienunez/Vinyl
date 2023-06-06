@@ -38,11 +38,9 @@ class AppContainer extends HTMLElement {
             case Screens.LIKES:
                 this.shadowRoot.innerHTML = `<my-likes></my-likes>`;
             break;
-            
-             /*LIBRARY TO ADD*/ 
-            
-             case Screens.LIBRARY:
-                this.shadowRoot.innerHTML = `<my-add></my-add>`;
+
+            case Screens.PROFILE:
+            this.shadowRoot.innerHTML = `<my-profile></my-profile>`;
             break;
 
             /*LIBRARY TO LIKES*/ 
@@ -52,7 +50,7 @@ class AppContainer extends HTMLElement {
             break;
             
             default:
-                break;
+            break;
     } 
  }
 }

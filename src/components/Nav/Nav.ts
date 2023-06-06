@@ -27,6 +27,12 @@ export default class Nav extends HTMLElement {
           console.log('Click handle button to likkes') 
     }
 
+    handleProfileButton(event: any) {
+        event?.preventDefault();
+        dispatch(navigate({payload:Screens.PROFILE}));
+          console.log('Click handle button to profile') 
+    }
+
     render(){
         if(this.shadowRoot) this.shadowRoot.innerHTML = `
         <link rel="stylesheet" href="../src/components/Nav/Nav.css">
@@ -54,6 +60,10 @@ export default class Nav extends HTMLElement {
         const btnlikes = this.shadowRoot?.querySelector('.tolikes');
         console.log(btnlikes);
         btnlikes?.addEventListener("click", this.handleLikesButton);
+        
+        const btnprofile = this.shadowRoot?.querySelector('.toprofile');
+        console.log(btnprofile);
+        btnprofile?.addEventListener("click", this.handleProfileButton);
     }
 }
 

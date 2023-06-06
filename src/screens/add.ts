@@ -56,6 +56,7 @@ export default class Add extends HTMLElement {
 
         const name = this.ownerDocument.createElement("input");
             name.type = "text";
+            name.placeholder = "Vinyl Name";
             name.addEventListener ("change", (e: any) => {
                 userInputs.name = e.target.value; 
                 
@@ -63,6 +64,7 @@ export default class Add extends HTMLElement {
 
             const price = this.ownerDocument.createElement("input");
             price.type = "number";
+            price.placeholder = "Price";
             price.addEventListener ("change", (e: any) => {
                 userInputs.price = e.target.value; 
             });
@@ -71,7 +73,6 @@ export default class Add extends HTMLElement {
             button.textContent = "Save";
             button.addEventListener("click", async () => {
                 console.log(userInputs);
-                //ACTION PARA GUARDAR LA INFO
                 dispatch(await saveproduct(userInputs))
                 
             })
@@ -83,15 +84,7 @@ export default class Add extends HTMLElement {
            this.shadowRoot?.appendChild(container)
            container.appendChild(inputscont);
 
-
-
         }
     }
-
-
-       
-
-    
-
 
 customElements.define("my-add", Add);

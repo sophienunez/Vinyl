@@ -35,5 +35,5 @@ export interface GetProductAction {
     payload: Product [];
 }
 
-export type Actions = SaveProductAction|GetProductAction| NavAction ;
+export type Actions = SaveProductAction | GetProductAction | NavAction ;
 ;
