@@ -73,7 +73,6 @@ export default class Add extends HTMLElement {
             button.textContent = "Save";
             button.addEventListener("click", async () => {
                 console.log(userInputs);
-                //ACTION PARA GUARDAR LA INFO
                 dispatch(await saveproduct(userInputs))
                 
             })

@@ -1,21 +1,16 @@
 import { initializeApp } from "firebase/app";
 import firebaseConfig from "../firebaseConfig";
 import { Product } from "../Types/products";
-//FIREBASE.COM
 import { getFirestore } from "firebase/firestore";
 import { collection, addDoc } from "firebase/firestore";
 import {  getDocs } from "firebase/firestore";
-
-
-// Initialize Firebase
-//FIREBASE.COM
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 const saveProductInDB = async( products: Product) => {
 try {
-  const docRef = await addDoc(collection(db, "products"), products);
+  const resp = await addDoc(collection(db, "products"), products);
 } catch (e) {
   console.error("Error adding document: ", e);
 }

@@ -4,7 +4,7 @@ import "../components/export";
 import { data } from "../data";
 import { DataShape } from "../data";
 import { addObserver, dispatch } from "../Strore/index";
-import { navigate } from "../Strore/actions";
+import { getProduct, navigate } from "../Strore/actions";
 import { Screens } from "../Types/types";
 
 export default class Home extends HTMLElement {
@@ -14,19 +14,25 @@ export default class Home extends HTMLElement {
         addObserver(this)
     }
 
-    connectedCallback(){
+    async connectedCallback(){
+        //dispatch(await getProduct())
         this.render();
     }
 
     render(){
         if(this.shadowRoot) this.shadowRoot.innerHTML = `
-        
         <link rel="stylesheet" href="../src/screens/home.css">
-        <my-nav></my-nav>
-        <my-player></my-player>
-        <my-add></my-add>
         `;
 
+        const nav = this.ownerDocument.createElement("my-nav")
+        const player = this.ownerDocument.createElement("my-player")
+        const add = this.ownerDocument.createElement("my-add")
+        const list = this.ownerDocument.createElement("my-list")
+
+        this.shadowRoot?.appendChild(nav);
+        this.shadowRoot?.appendChild(player);
+        this.shadowRoot?.appendChild(add);
+        this.shadowRoot?.appendChild(list);
     }
 }
 
