@@ -1,12 +1,15 @@
 import "../components/export"
 import { dispatch } from "../Strore/index";
 import { navigate } from "../Strore/actions";
+import { addObserver } from "../Strore/index"
 import { Screens } from "../Types/types";
 
 export default class Register extends HTMLElement {
     constructor(){
         super();
         this.attachShadow({mode: 'open'});
+        addObserver(this)
+
     }
 
     connectedCallback(){
@@ -16,8 +19,8 @@ export default class Register extends HTMLElement {
 
     handleRegisterButton(event: any) {
         event?.preventDefault();
-          dispatch(navigate(Screens.HOME));
-          console.log('Click handle button') 
+        dispatch(navigate({payload:Screens.HOME}));
+        console.log('Click handle button') 
         }
 
         //const btn = this.shadowRoot?.querySelector("button");

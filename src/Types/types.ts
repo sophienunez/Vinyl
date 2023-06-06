@@ -1,8 +1,11 @@
+import { Product } from "./products";
+
 export enum Screens{
     HOME = "HOME",
     REGISTER = "REGISTER",
     LOGIN = "LOGIN",
-    LIBRARY="LIBRARY",
-    ADD = "ADD",
-    LIKES= "LIKES"
+    SIGNOUT = "SIGNOUT",
+    LIBRARY ="LIBRARY",
+    LIKES ="LIKES",
+    PROFILE = "PROFILE"
 }

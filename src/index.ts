@@ -1,5 +1,4 @@
 import './screens/export';
-import './components/export'
 import {addObserver, appState} from "./Strore/index"
 import { Screens } from "./Types/types";
 
@@ -18,7 +17,7 @@ class AppContainer extends HTMLElement {
 
     render() {
         if (!this.shadowRoot) return;
-        switch (appState.screen) {
+        switch (appState.screens) {
 
             case Screens.LOGIN:
                 this.shadowRoot.innerHTML =`<my-login></my-login>`;
@@ -36,15 +35,22 @@ class AppContainer extends HTMLElement {
                 this.shadowRoot.innerHTML = `<my-library></my-library>`;
             break;
 
-            case Screens.ADD:
-                this.shadowRoot.innerHTML = `<my-add></my-add>`;
-            break;
-
             case Screens.LIKES:
                 this.shadowRoot.innerHTML = `<my-likes></my-likes>`;
             break;
+
+            case Screens.PROFILE:
+            this.shadowRoot.innerHTML = `<my-profile></my-profile>`;
+            break;
+
+            /*LIBRARY TO LIKES*/ 
+
+            case Screens.LIBRARY:
+                this.shadowRoot.innerHTML = `<my-likes></my-likes>`;
+            break;
+            
             default:
-                break;
+            break;
     } 
  }
 }
