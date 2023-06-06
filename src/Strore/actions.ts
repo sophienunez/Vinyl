@@ -20,15 +20,12 @@ export const saveproduct = async (products: Product): Promise <Actions> => {
   }
 };
 
-export const getProduct = async (): Promise<Actions> => {
-  try {
-    const products = await firebase.getProductsFromDB();
-    return {
-      action: SomeActions.GET_PRODUCT,
-      payload: products,
-    };
-  } catch (error) {
-    console.error('Error fetching products:', error);
-    throw error;
-  }
-};
+export const getProduct = async (): Promise <Actions> => {
+  const products = await  firebase.getProductsFromDB();
+  return {
+    action: SomeActions.GET_PRODUCT,
+    payload: products,
+   
+}
+}
+

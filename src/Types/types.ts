@@ -4,8 +4,6 @@ export enum Screens{
     HOME = "HOME",
     REGISTER = "REGISTER",
     LOGIN = "LOGIN",
-    SIGNOUT = "SIGNOUT",
     LIBRARY ="LIBRARY",
     LIKES ="LIKES",
-    PROFILE = "PROFILE"
 }

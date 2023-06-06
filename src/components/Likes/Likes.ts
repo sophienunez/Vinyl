@@ -60,11 +60,7 @@ export default class Likes extends HTMLElement {
           console.log('Click handle button to library') 
     }
 
-    handleProfileButton(event: any) {
-        event?.preventDefault();
-        dispatch(navigate({payload:Screens.PROFILE}));
-          console.log('Click handle button to profile') 
-    }
+
 
     render(){
         if(this.shadowRoot) {
@@ -80,7 +76,6 @@ export default class Likes extends HTMLElement {
          <button class="tohome">Home</button>
          <button class="tolibrary">Library</button>
          <button class="tolikes"><3</button>
-         <button class="toprofile">Profile</button>
          </div>
          </ul>
         </nav>
@@ -115,10 +110,6 @@ export default class Likes extends HTMLElement {
             const btnlibrary = this.shadowRoot?.querySelector('.tolibrary');
             console.log(btnlibrary);
             btnlibrary?.addEventListener("click", this.handleLibraryButton);
-
-            const btnprofile = this.shadowRoot?.querySelector('.toprofile');
-            console.log(btnprofile);
-            btnprofile?.addEventListener("click", this.handleProfileButton);
 
         }
     }
