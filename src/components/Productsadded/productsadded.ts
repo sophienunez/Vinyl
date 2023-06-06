@@ -14,7 +14,7 @@ class List extends HTMLElement {
         render(){
            
             if(this.shadowRoot)
-            this.shadowRoot.innerHTML = ``;
+            this.shadowRoot.innerHTML = "";
 
             appState.products.forEach((p) => {
             const pContainer = this.ownerDocument.createElement("article");
@@ -32,5 +32,5 @@ class List extends HTMLElement {
         }
     }
     
-customElements.define("my-list", List);
+customElements.define ("my-list", List);
 export default List;

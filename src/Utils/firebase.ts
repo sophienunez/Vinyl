@@ -2,7 +2,6 @@ import { initializeApp } from "firebase/app";
 import firebaseConfig from "../firebaseConfig";
 import  "../indexfireb";
 import { Product } from "../Types/products";
-//FIREBASE.COM
 import { getFirestore } from "firebase/firestore";
 import { collection, addDoc } from "firebase/firestore";
 import {  getDocs } from "firebase/firestore";
@@ -12,12 +11,13 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 
-// Initialize Firebase
-//FIREBASE.COM
+
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app)
+
 //Register
+
 const registerUser = async ({
   email,
   password,
@@ -69,7 +69,7 @@ const loginUser = async ({
 
 const saveProductInDB = async( products: Product) => {
 try {
-  await addDoc(collection(db, "products"), products);
+  const resp = await addDoc(collection(db, "products"), products);
 } catch (e) {
   console.error("Error adding document: ", e);
 }

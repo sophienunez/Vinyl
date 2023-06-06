@@ -10,3 +10,4 @@ export {default as CardsLike} from "./CardsLike/CardsLike";
 export {default as CardsSuggestion} from "./CardsSuggestion/CardsSuggestion";
 export {default as Suggestions} from "./Suggestions/Suggestions";
 export {default as Player} from "./Player/Player";
+export {default as List} from "./Productsadded/productsadded";
